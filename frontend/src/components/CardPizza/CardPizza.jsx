@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import { useContext } from "react";
 import { CartContext } from "../../contexts/CartContext";
+import { Link } from "react-router-dom";
 
 
 export const CardPizza = ({ name, desc, img, ingredients, price, id }) => {
@@ -20,7 +21,7 @@ export const CardPizza = ({ name, desc, img, ingredients, price, id }) => {
         ))}
       </ul>
       <p className="mt-1 fw-bold">Precio: ${price}</p>
-      <button className="btn btn-light">Ver más 👀</button>
+      <Link to={`/pizza/${id}`} className="btn btn-light">Ver más 👀</Link>
       <button className="btn btn-dark" onClick={() => handleAgrega(id)}>Añadir 🛒</button>
       </div>
     </div>
@@ -29,6 +30,7 @@ export const CardPizza = ({ name, desc, img, ingredients, price, id }) => {
 
 // Validaciones de PropTypes
 CardPizza.propTypes = {
+  id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired, 
   desc: PropTypes.string.isRequired, 
   img: PropTypes.string.isRequired, 

@@ -1,7 +1,8 @@
 import { useContext } from 'react'
 import { CartContext } from '../../contexts/CartContext'
 import './Navbar.css'
-import { Link } from "react-router-dom"
+import { Link, NavLink } from "react-router-dom"
+import { setActiveClass } from '../../utilities/setActive'
 
 export const Navbar=() =>{
     const {total} = useContext(CartContext)
@@ -9,11 +10,11 @@ export const Navbar=() =>{
         <>
     <nav>
       <h4>Pizzería Mamma Mía!</h4>
-      <Link to="/"><button className='boton1'>🍕Home</button></Link>
-      <Link to="/profile"><button className='boton1'>🔓Profile</button></Link>
-      <Link to="/login"><button className='boton1'>🔐Login</button></Link>
+      <NavLink to="/"><button className={setActiveClass}>🍕Home</button></NavLink>
+      <NavLink to="/profile"><button className={setActiveClass}>🔓Profile</button></NavLink>
+      <NavLink to="/login"><button className={setActiveClass}>🔐Login</button></NavLink>
       <button>🔒Logout</button>
-      <Link to="/register"><button className='boton1'>🔐Register</button></Link>
+      <NavLink to="/register"><button className={setActiveClass}>🔐Register</button></NavLink>
       <div className="totalCompra">
       <Link to="/cart"><button className='boton2'>🛒Total:$ {total.toFixed(0)}</button></Link>
     </div>

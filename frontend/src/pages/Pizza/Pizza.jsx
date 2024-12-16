@@ -1,21 +1,23 @@
 import { useEffect, useState } from "react"
+import { useParams } from "react-router-dom"
 import {CardPizza} from "../../components/CardPizza/CardPizza"
 
 
 
 export const Pizza = () => {
-
+  const {id}= useParams();
   const [pizzas, setPizzas] = useState([])
-  const backEnd= "http://localhost:5000/api/pizzas/p001"
+
+  const backEnd= "http://localhost:5000/api/pizzas/"
 
   useEffect(() => {
     const consultaApi = async () => {
-      const res = await fetch(backEnd)
+      const res = await fetch(`${backEnd}/${id}`)
       const data= await res.json()
       setPizzas([data]) 
     }
     consultaApi()
-  }, [])
+  }, [id])
   return (
     <>
  <div className="pizzaContainer">
