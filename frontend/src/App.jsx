@@ -1,14 +1,14 @@
-import { Route, Routes } from "react-router-dom";
-import { BrowserRouter } from "react-router-dom";
 import "./index.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Footer, Header, Navbar} from "./components"
 import {Cart, Home, Login, Register, Pizza, Profile, NotFound} from "./pages"
-import { CartProvider } from "./contexts/CartContext";
+import { CartProvider, UserProvider } from "./contexts";
 
 function App() {
   return (
     <>
       <BrowserRouter>
+      <UserProvider>
       <CartProvider>
         <Header />
         <Navbar />
@@ -24,9 +24,11 @@ function App() {
         </Routes>
         <Footer />
         </CartProvider>
+        </UserProvider>
       </BrowserRouter>
     </>
   );
 }
 
 export default App;
+

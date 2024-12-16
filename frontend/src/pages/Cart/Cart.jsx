@@ -1,9 +1,10 @@
 import { useContext } from "react";
-import { CartContext } from "../../contexts/CartContext";
+import {CartContext, useUser} from '../../contexts'
 import "./Cart.css"
 
 export const Cart = () => {
   const {cart, handleIncrease, handleDecrease, total}= useContext(CartContext)
+  const {token} = useUser()
 
   return (
     <div className="container mt-5">
@@ -46,7 +47,8 @@ export const Cart = () => {
         </ul>
       )}
       <h3>Total: ${total.toFixed(0)}</h3>
-      <button className="btn btn-primary mt-3">Pagar</button>
+      <button className="btn btn-primary mt-3"
+      disabled={!token}>Pagar</button>
     </div>
   );
 };
