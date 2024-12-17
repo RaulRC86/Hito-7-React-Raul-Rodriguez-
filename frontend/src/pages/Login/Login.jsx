@@ -25,8 +25,8 @@ export const Login = () => {
   return (
     <>
     <div className="formulario">
-      <form onSubmit={handleSubmit}>
-        <div>
+      <form onSubmit={handleSubmit} className='form'>
+        
           <label>Email</label>
           <input
             type="email"
@@ -35,8 +35,7 @@ export const Login = () => {
               setEmail(e.target.value);
             }}
           />
-        </div>
-        <div>
+
           <label>Contraseña</label>
           <input
             type="password"
@@ -45,7 +44,7 @@ export const Login = () => {
               setContraseña(e.target.value);
             }}
           />
-        </div>
+
         <button type="submit">Iniciar Sesión</button>
         {/* Mostrar el error si existe */}
         {error && <p className="error">{error}</p>}
