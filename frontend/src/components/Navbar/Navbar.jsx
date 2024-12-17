@@ -16,7 +16,6 @@ export const Navbar = () => {
 
   return (
     <nav>
-      <h4>Pizzería Mamma Mía!</h4>
       <NavLink to="/">
         <button className={setActiveClass}>🍕Home</button>
       </NavLink>
